@@ -1,17 +1,25 @@
 
-<script>
+<script lang="ts">
     let dark = true;
+    import {toggleDarkMode} from "../lib/darkMode"
     import Index from "./index.svelte"
+    import Nav from "../components/Nav.svelte"
+    import Footer from "../components/footer.svelte"
+    $:if(dark) {
+        toggleDarkMode();
+    }
 </script>
 
-<div class:dark>
-    <main class="bg-white dark:bg-gray-800 text-black dark:text-white min-h-screen">
-        <Index bind:dark/>
-        <!-- <button on:click={dark} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Change Theme</button> -->
-        <!-- <slot/> -->
+<div class:dark class="flex flex-col h-screen bg-white dark:bg-gray-600"> 
+    <main class="bg-white dark:bg-gray-600 h-screen flex-grow"> 
+        <Nav bind:dark/>
+        <slot />
+        <Footer dark={dark}/>
     </main>
 </div>
 
+<!-- <Index dark={dark}/>
+         -->
 
 <style>
 	@tailwind base;
