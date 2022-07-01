@@ -1,6 +1,5 @@
 <script>
-    // export let dark=false;
-    import {toggleDarkMode} from "../lib/darkMode";
+  import {toggleDarkMode} from "$lib/darkMode";
 </script>
 
 <nav class="flex flex-grow">

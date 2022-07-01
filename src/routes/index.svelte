@@ -1,11 +1,44 @@
-<script lang="ts">
+<script >
+	class Projects{
+	}
 	let page_views = 0;
-
-	// export let dark = false;
+	export let projects;
 </script>
 
+
+<script context="module">
+	import ProjectCard from "$lib/components/project-card.svelte";
+	import { client } from "$lib/graphql-client"
+	import { gql } from "graphql-request";
+
+	export async function load(){
+		const query = gql`
+		query GetProjects {
+			projects {
+			name
+			slug
+			description
+			demo
+			sourceCode
+			image {
+				url
+			}
+			}
+		}
+		`
+		const { projects } = await client.request(query)
+		return {
+		props: {
+			projects,
+		},
+		}
+	}
+</script>
+
+
+
 <section>
-	<div class="hero min-h-screen bg-white dark:bg-base-200">
+	<div class="hero bg-white dark:bg-base-200">
 		<div class="hero-content flex-col lg:flex-row-reverse">
 		  <img src="https://placeimg.com/260/400/arch" class="hover:scale-110 ease-in duration-100 max-w-sm rounded-lg shadow-2xl" alt="some"/>
 		  <div>
@@ -23,6 +56,13 @@
 		  </div>
 		</div>
 	  </div>
+
+	<div class="flex flex-wrap">
+	{#each projects as { name, slug, description, image }}
+		<ProjectCard {name} {description} url={image[0].url} {slug} />
+	{/each}
+</div>
+	
 	  
 </section>
 
