@@ -12,7 +12,7 @@
 </script>
 
 <div> 
-    <main class=" h-screen flex-grow"> 
+    <main class=""> 
         <Nav/>
         <slot/>
         <Footer/>

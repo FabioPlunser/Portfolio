@@ -7,7 +7,7 @@
   
 
 
-<div class="mx-2 my-2 card w-96 bg-base-100 shadow-xl image-full">
+<div class="mx-2 my-2 card w-96 shadow-xl image-full">
     <figure><img src={url} alt={name} /></figure>
     <div class="card-body">
         <h2 class="card-title">{name}</h2>
