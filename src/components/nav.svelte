@@ -1,16 +1,20 @@
 <script>
-    export let dark=true;
-    function toggleDarkMode() {
-		dark = !dark;
-	}
+    // export let dark=false;
+    import {toggleDarkMode} from "../lib/darkMode";
 </script>
 
 <nav class="flex flex-grow">
-    <ul class="flex flex-grow justify-end flex-wrap items-center">
+    <ul class="flex flex-grow justify-end flex-wrap items-center mt-2 mr-5">
       <li>
-        <button type="button" on:click={toggleDarkMode} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-5">
+        <button type="button" on:click={toggleDarkMode} class="btn btn-primary dark:btn-secondary">
         Dark Mode
         </button>
       </li>
     </ul>
 </nav>
+
+<style>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+</style>

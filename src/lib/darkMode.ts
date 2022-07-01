@@ -1,12 +1,12 @@
 import { browser } from '$app/env';
 
-export function toggleDarkMode(dark: boolean) {
+export function toggleDarkMode() {
     if(browser){
-        if(dark){
-            document.documentElement.classList.add('dark');
+        if(document.documentElement.classList.contains("dark")){
+            document.documentElement.classList.remove("dark");
         }
         else{
-            document.documentElement.classList.remove('dark');
+            document.documentElement.classList.add("dark");
         }
     }
 }
