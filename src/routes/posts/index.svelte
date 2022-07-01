@@ -1,0 +1,58 @@
+<script context="module">
+	import { client } from '$lib/graphql-client';
+	import { postsQuery } from '$lib/graphql-queries';
+	import { marked } from 'marked';
+
+	export async function load() {
+		const [postsReq] = await Promise.all([client.request(postsQuery)]);
+		const { posts } = postsReq;
+		return {
+			props: {
+				posts
+			}
+		};
+	}
+</script>
+
+<script>
+	export let posts;
+</script>
+
+<svelte:head>
+	<title>Portfolio | Blog</title>
+</svelte:head>
+
+<center>
+	<h1 class="text-4xl mb-10 font-extrabold text-6xl text-black dark:text-white underline">
+		Blog posts
+	</h1>
+</center>
+<center>
+	<section id="blog-posts" class="pb-96">
+		{#each posts as { title, slug, content, coverImage, tags }}
+			<div class="card text-center w-1/2 shadow-2xl mb-20">
+				<figure class="">
+					<img class="" src={coverImage.url} alt={`Cover image for ${title}`} />
+				</figure>
+				<div class="card-body prose">
+					<h2 class="title">{title}</h2>
+					{@html marked(content).slice(0, 150)}
+					<div class="flex justify-center mt-5 space-x-2">
+						{#each tags as tag}
+							<span class="badge badge-primary">{tag}</span>
+						{/each}
+					</div>
+					<div class="justify-center card-actions">
+						<a href={`/posts/${slug}`} class="btn btn-outline btn-primary">Read &rArr;</a>
+					</div>
+				</div>
+			</div>
+		{/each}
+	</section>
+</center>
+
+<style>
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+</style>

@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="de" class="w-full h-full p-0 m-0">
+<html lang="de" class="w-full h-full p-0 m-0 dark">
 	<head>
 		<meta charset="utf-8" />
 		<title>Portfolio</title>
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<link rel="icon" href="%sveltekit.assets%/icon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<script src="https://cdn.tailwindcss.com"></script>
-		
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 		%sveltekit.head%
 	</head>
-	<body class="smoothscroll bg-white dark:bg-base-200">
+	<body class="smoothscroll bg-white dark:bg-base-200 min-h-screen
+">
 		<div id="svelte">%sveltekit.body%</div>
 	</body>
 </html>

@@ -1,5 +1,6 @@
 /** @type {import('@sveltejs/kit').Config} */
 import adapter from '@sveltejs/adapter-node';
+// import adapter from 'svelte-adapter-deno';
 const config = {
 	// options passed to svelte.compile (https://svelte.dev/docs#compile-time-svelte-compile)
 	compilerOptions: {},
