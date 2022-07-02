@@ -6,7 +6,7 @@
 </script>
 
 <center>
-	<div class="container justify-center mx-2 my-2 card w-1/3 shadow-xl image-full">
+	<div class="container justify-center mx-2 my-2 card w-1/3 shadow-xl image-full z-0">
 		<img class="opacity-100" src={url} alt={name} />
 		<div class="card-body text-white">
 			<h2 class="card-title text-white font-extrabold">{name}</h2>

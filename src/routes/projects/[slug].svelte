@@ -24,7 +24,7 @@
 	<title>My Portfolio | {project.name}</title>
 </svelte:head>
 
-<section class="pb-96 w-auto mx-40 text-black dark:text-primary-content">
+<section class="w-auto mx-40 text-black dark:text-primary-content">
 	<div class="sm:-mx-5 md:-mx-10 lg:-mx-20 xl:-mx-38 mb-5">
 		<center>
 			<img class="rounded-lg w-1/4 shadow-xl" src={project.image[0].url} alt={project.title} />

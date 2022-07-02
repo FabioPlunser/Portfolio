@@ -28,7 +28,7 @@
 	</h1>
 </center>
 
-<section class="w-auto mx-40 text-black dark:text-primary-content">
+<section class="w-auto mx-40 text-black dark:text-primary-content pb-96 z-0">
 	{#if projects.length == 0}
 		<center>
 			<h1 class="text-4xl mb-10 font-extrabold text-6xl text-black dark:text-white underline">
