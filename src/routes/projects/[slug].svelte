@@ -65,9 +65,3 @@
 		{@html marked(project.description)}
 	</article>
 </section>
-
-<style>
-	@tailwind base;
-	@tailwind components;
-	@tailwind utilities;
-</style>

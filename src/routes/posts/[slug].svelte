@@ -1,4 +1,4 @@
-<script context="module">
+<script context="module" lang="ts">
 	import { client } from '$lib/graphql-client';
 	import { postQuery } from '$lib/graphql-queries';
 	import { marked } from 'marked';
@@ -10,7 +10,7 @@
 
 		return {
 			props: {
-				post
+				post: any
 			}
 		};
 	};
@@ -63,9 +63,3 @@
 		>
 	</article>
 </section>
-
-<style>
-	@tailwind base;
-	@tailwind components;
-	@tailwind utilities;
-</style>

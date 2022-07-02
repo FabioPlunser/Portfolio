@@ -40,9 +40,3 @@
 		<ProjectCard {name} {description} url={image[0].url} {slug} />
 	{/each}
 </section>
-
-<style>
-	@tailwind base;
-	@tailwind components;
-	@tailwind utilities;
-</style>
