@@ -10,7 +10,7 @@
 
 		return {
 			props: {
-				post: any
+				post
 			}
 		};
 	};
@@ -26,10 +26,14 @@
 	<title>Blog | {title}</title>
 </svelte:head>
 
-<section class="w-auto mx-40 text-black dark:text-primary-content">
+<section class="container mx-auto max-w-5xl justify-center text-black dark:text-primary-content">
 	<div class="sm:-mx-5 md:-mx-10 lg:-mx-20 xl:-mx-38 mb-5">
 		<center>
-			<img class="rounded-xl w-1/2" src={coverImage.url} alt={`Cover image for ${title}`} />
+			<img
+				class="rounded-xl"
+				src={coverImage.url}
+				alt={`Cover image for ${title}`}
+			/>
 		</center>
 	</div>
 

@@ -9,9 +9,7 @@
 	<title>My Portfolio project</title>
 </svelte:head>
 
-<section
-	class="flex justify-center text-primary-content text-black dark:text-primary-content text-2xl"
->
+<section class="flex justify-center text-black dark:text-primary-content text-2xl">
 	<div class="hero bg-white dark:bg-base-200">
 		<div class="hero-content flex-col lg:flex-row-reverse">
 			<img

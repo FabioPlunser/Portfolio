@@ -28,9 +28,7 @@
 	<title>My Portfolio project | About {name}</title>
 </svelte:head>
 
-<section
-	class="pb-60 prose prose-red prose-stone prose-headings:underline dark:prose-invert"
->
+<section class="pb-60 prose prose-red prose-stone prose-headings:underline dark:prose-invert">
 	<!-- <h1 class="font-bold text-center mb-20 text-5xl text-white dar:text-black underline">About Me</h1> -->
 	<div class="flex justify-center">
 		<div class="w-60">
