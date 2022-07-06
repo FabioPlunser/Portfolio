@@ -8,7 +8,13 @@
 	import { marked } from 'marked';
 	marked.setOptions({
 		highlight: function (code, lang, _callback) {
-			return hljs.highlightAuto(code).value;
+			if (typeof lang === 'undefined') {
+				return hljs.highlightAuto(code).value;
+			} else if (lang === 'nohighlight') {
+				return code;
+			} else {
+				return hljs.highlight(lang, code).value;
+			}
 		}
 	});
 
@@ -48,7 +54,7 @@
 		<a href="/posts" class="hover:scale-125 ease-in-out duration-200" alt="back"
 			><i class="bi bi-arrow-90deg-left text-4xl pr-10" /></a
 		>
-		<h1>{title}</h1>
+		<h1>{@html marked.parse(title)}</h1>
 	</div>
 
 	<p class="text-secondary text-xs tracking-widest font-semibold">
