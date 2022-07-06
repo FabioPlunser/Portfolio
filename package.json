@@ -14,6 +14,7 @@
 		"format": "prettier --write --plugin-search-dir=. ."
 	},
 	"devDependencies": {
+		"@fontsource/ibm-plex-mono": "^4.5.10",
 		"@playwright/test": "^1.22.2",
 		"@sveltejs/adapter-node": "^1.0.0-next.78",
 		"@sveltejs/kit": "next",
@@ -29,11 +30,13 @@
 		"graphql": "^16.5.0",
 		"graphql-request": "^4.3.0",
 		"marked": "^4.0.17",
+		"node-html-parser": "^5.3.3",
 		"postcss": "^8.4.14",
 		"postcss-load-config": "^4.0.1",
 		"prettier": "^2.6.2",
 		"prettier-plugin-svelte": "^2.7.0",
 		"rollup-plugin-string": "^3.0.0",
+		"shiki": "^0.10.1",
 		"svelte": "^3.46.0",
 		"svelte-adapter-deno": "^0.6.2",
 		"svelte-check": "^2.7.1",
@@ -41,7 +44,8 @@
 		"svelte-preprocess": "^4.10.7",
 		"tailwindcss": "^3.1.4",
 		"tslib": "^2.3.1",
-		"typescript": "^4.7.2"
+		"typescript": "^4.7.2",
+		"markdown-hljs": "^0.1.0"
 	},
 	"type": "module",
 	"dependencies": {
@@ -50,6 +54,8 @@
 		"bootstrap-icons": "^1.8.3",
 		"cookie": "^0.4.1",
 		"daisyui": "^2.17.0",
+		"highlight.js": "^11.5.1",
+		"ngx-highlightjs": "^7.0.0",
 		"svelte-i18n": "^3.4.0",
 		"sveltekit-i18n": "^2.2.2"
 	}

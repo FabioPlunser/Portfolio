@@ -1,7 +1,16 @@
 <script context="module" lang="ts">
+	import '@fontsource/ibm-plex-mono';
+	import { get } from './../../sitemap.xml.ts';
 	import { client } from '$lib/graphql-client';
 	import { postQuery } from '$lib/graphql-queries';
+
+	import hljs from 'highlight.js';
 	import { marked } from 'marked';
+	marked.setOptions({
+		highlight: function (code, lang, _callback) {
+			return hljs.highlightAuto(code).value;
+		}
+	});
 
 	export const load = async ({ params }) => {
 		const { slug } = params;
@@ -16,24 +25,22 @@
 	};
 </script>
 
-<script>
+<script lang="ts">
 	export let post;
 
 	const { title, date, tags, content, coverImage } = post;
+
+	$: markdown = marked.parse(content);
 </script>
 
 <svelte:head>
 	<title>Blog | {title}</title>
 </svelte:head>
 
-<section class="container mx-auto max-w-5xl justify-center text-black dark:text-primary-content">
+<section class="container mx-auto max-w-5xl justify-center dark:text-primary-content">
 	<div class="sm:-mx-5 md:-mx-10 lg:-mx-20 xl:-mx-38 mb-5">
 		<center>
-			<img
-				class="rounded-xl"
-				src={coverImage.url}
-				alt={`Cover image for ${title}`}
-			/>
+			<img class="rounded-xl" src={coverImage.url} alt={`Cover image for ${title}`} />
 		</center>
 	</div>
 
@@ -60,10 +67,14 @@
 		</div>
 	</div>
 
-	<article class="text-black dark:text-primary-content prose prose-lg pb-96">
-		{@html marked(content)}
+	<article class="prose prose-lg pb-96">
+		{@html markdown}
 		<a href="/posts" class="hover:scale-125 ease-in-out duration-200"
 			><i class="bi bi-arrow-90deg-left text-4xl pr-10" /></a
 		>
 	</article>
 </section>
+
+<style>
+	@import 'https://unpkg.com/@highlightjs/cdn-assets@10.6.0/styles/night-owl.min.css';
+</style>

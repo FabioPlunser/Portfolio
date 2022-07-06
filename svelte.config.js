@@ -8,11 +8,13 @@ const config = {
 
 	// an array of file extensions that should be treated as Svelte components
 	extensions: ['.svelte'],
+
 	preprocess: [
 		preprocess({
 			postcss: true
 		})
 	],
+
 	kit: {
 		adapter: adapter(),
 		alias: {},
@@ -73,6 +75,11 @@ const config = {
 		version: {
 			name: Date.now().toString(),
 			pollInterval: 0
+		},
+		vite: {
+			optimizeDeps: {
+				include: ['highlight.js', 'highlight.js/lib/core']
+			}
 		}
 	}
 };

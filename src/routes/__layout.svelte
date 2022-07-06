@@ -2,6 +2,7 @@
 	import Nav from '../lib/components/nav.svelte';
 	import Footer from '../lib/components/footer.svelte';
 	import '../input.css';
+
 </script>
 
 <div>
