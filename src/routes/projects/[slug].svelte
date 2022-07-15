@@ -24,7 +24,7 @@
 	<title>My Portfolio | {project.name}</title>
 </svelte:head>
 
-<section class="w-auto mx-40 text-black dark:text-primary-content">
+<section class="w-auto mx-10 md:mx-20 text-black dark:text-primary-content">
 	<div class="sm:-mx-5 md:-mx-10 lg:-mx-20 xl:-mx-38 mb-5">
 		<center>
 			<img class="rounded-lg w-1/4 shadow-xl" src={project.image[0].url} alt={project.title} />
@@ -33,9 +33,9 @@
 
 	<div class="prose prose-xl flex">
 		<a href="/projects" class="hover:scale-125 ease-in-out duration-200" alt="back"
-			><i class="bi bi-arrow-90deg-left text-4xl pr-10" /></a
+			><i class="bi bi-arrow-90deg-left md:text-4xl pr-10" /></a
 		>
-		<h1>{project.name}</h1>
+		<h1 class="text-xl md:text-4xl">{project.name}</h1>
 	</div>
 	<div class="mb-5 flex justify-between">
 		<div>

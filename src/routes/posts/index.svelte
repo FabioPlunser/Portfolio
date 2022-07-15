@@ -30,7 +30,7 @@
 <center>
 	<section id="blog-posts" class="pb-96">
 		{#each posts as { title, slug, content, coverImage, tags }}
-			<div class="card text-center w-1/2 shadow-2xl mb-20">
+			<div class="card text-center w-auto md:w-1/2 mx-10 md:mx-0  shadow-2xl mb-20 bg-slate-900">
 				<figure class="">
 					<img class="" src={coverImage.url} alt={`Cover image for ${title}`} />
 				</figure>
@@ -43,7 +43,7 @@
 						{/each}
 					</div>
 					<div class="justify-center card-actions">
-						<a href={`/posts/${slug}`} class="btn btn-outline btn-primary">Read &rArr;</a>
+						<a href={`/posts/${slug}`} class="btn bg-blue-700 text-white" >Read &rArr;</a>
 					</div>
 				</div>
 			</div>

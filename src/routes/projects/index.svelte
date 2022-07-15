@@ -23,15 +23,15 @@
 </svelte:head>
 
 <center>
-	<h1 class="text-4xl mb-10 font-extrabold text-6xl text-black dark:text-white underline">
+	<h1 class="mb-10 font-extrabold md:text-4xl text-black dark:text-white underline">
 		Projects
 	</h1>
 </center>
 
-<section class="w-auto mx-40 text-black dark:text-primary-content pb-96 z-0">
+<section class="w-full text-black dark:text-white pb-96 z-0">
 	{#if projects.length == 0}
 		<center>
-			<h1 class="text-4xl mb-10 font-extrabold text-6xl text-black dark:text-white underline">
+			<h1 class="mb-10 font-extrabold text-black dark:text-white underline">
 				No Projects
 			</h1>
 		</center>
