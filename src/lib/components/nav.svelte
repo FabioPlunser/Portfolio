@@ -7,11 +7,12 @@
 	class="navbar bg-neutral mb-20 w-auto mx-5 shadow-xl text-primary-content rounded-box sticky top-0 z-10"
 >
 	<div class="flex-1">
-		<a href="/"><span class="font-bold">Plunser Fabios Portfolio</span></a>
+		<a sveltekit:prefetch href="/"><span class="font-bold">Plunser Fabios Portfolio</span></a>
 	</div>
 	<div class="flex-none">
 		<div class="flex">
 			<a
+				sveltekit:prefetch
 				class:underline={$page.url.pathname === '/projects'}
 				class="btn btn-ghost btn-sm rounded-btn"
 				href="/projects"
@@ -19,11 +20,13 @@
 				Projects
 			</a>
 			<a
+				sveltekit:prefetch
 				class:underline={$page.url.pathname === '/posts'}
 				class="btn btn-ghost btn-sm rounded-btn"
 				href="/posts">Blog</a
 			>
 			<a
+				sveltekit:prefetch
 				class:underline={$page.url.pathname === '/about'}
 				class="btn btn-ghost btn-sm rounded-btn"
 				href="/about">About</a
