@@ -13,6 +13,7 @@
 <section class="pb-60 prose prose-red prose-stone prose-headings:underline dark:prose-invert">
 	<div class="flex justify-center">
 		<div class="w-60">
+			<!-- svelte-ignore a11y-img-redundant-alt -->
 			<img class="rounded-full shadow-2xl" src={author.picture.url} alt="Profile picture" />
 		</div>
 	</div>
