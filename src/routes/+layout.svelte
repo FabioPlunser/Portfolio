@@ -6,7 +6,7 @@
 
 <div>
 	<main class="">
-		<Nav />
+		<!-- <Nav /> -->
 		<slot />
 		<Footer />
 	</main>
