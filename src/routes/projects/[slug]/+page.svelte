@@ -1,13 +1,31 @@
 <script lang="ts">
 	import {marked} from 'marked';
+  	import { onMount } from 'svelte';
+	import {page} from "$app/stores";
+
 	import type { PageData } from './$types';
 	export let data: PageData;
 	$: project = data.project;
+
+    let url = $page.url.pathname.slice(1);
+    let path = `$lib/blogPages/${url}.svelte`
+	let Component: any;
+	let component_found = false;
+	onMount(async ()=>{
+		try {
+			Component = (await import(path)).default;
+			component_found = true;
+		} catch (error) {
+			component_found = false;
+		}
+	});
 </script>
 
 <svelte:head>
-	<title>My Portfolio | {project.name}</title>
+		<title>My Portfolio | {url}</title>
 </svelte:head>
+
+{#if Component == undefined}
 
 <section class="w-auto mx-10 md:mx-20 text-black dark:text-primary-content">
 	<div class="sm:-mx-5 md:-mx-10 lg:-mx-20 xl:-mx-38 mb-5">
@@ -50,3 +68,6 @@
 		{@html marked(project.description)}
 	</article>
 </section>
+{:else}
+	<svelte:component this={Component} />
+{/if}
