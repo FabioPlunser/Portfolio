@@ -8,6 +8,6 @@
 	<main class="">
 		<Nav />
 		<slot />
-		<Footer />
+		<!-- <Footer /> -->
 	</main>
 </div>
