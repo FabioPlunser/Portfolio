@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { ClientError } from "graphql-request";
-
+    import {getData} from "./sql";
+    import Spinner from "$ib/components/spinner.svelte";
     let input = "";
     let password = import.meta.env.VITE_ADMIN_PASSWORD
 
@@ -25,6 +25,33 @@
 
 {#if login}
     <button class="btn btn-primary" on:click={()=>login=false}><a href="/">Log Out</a></button>
+    <div>
+        {#await getData()}
+            <Spinner/>
+        {:then data} 
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Pciture</th>
+                        <th>Description</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {#each data as row}
+                        <tr>
+                            <td>{row.title}</td>
+                            <!-- svelte-ignore a11y-img-redundant-alt -->
+                            <td><img src={row.picture} alt="picture of row"/></td>
+                            <td>{row.Description}</td>
+                            <td>{row.Link}</td>
+                        </tr>
+                    {/each}
+                </tbody>
+            </table>
+        {/await}
+    </div>
 {/if}
 
 </center>

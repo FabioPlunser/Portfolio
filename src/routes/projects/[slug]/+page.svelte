@@ -57,10 +57,10 @@
 		class="mb-5 prose flex prose-a:text-slate-500 hover:prose-a:text-slate-900 dark:prose-a:text-white dark:hover:prose-a:text-slate-400"
 	>
 		{#if project.demo}
-			<a class="mr-5" href={project.demo} target="_blank">Demo</a>
+			<a class="mr-5" href={project.demo} rel="noopener noreferrer">Demo</a>
 		{/if}
 		{#if project.sourceCode}
-			<a href={project.sourceCode} target="_blank">Source Code</a>
+			<a href={project.sourceCode} rel="noopener noreferrer">Source Code</a>
 		{/if}
 	</div>
 
