@@ -1,44 +1,22 @@
 <script lang="ts">
-	import { toggleDarkMode } from '$lib/darkMode';
+	import Navexpension from './navexpension.svelte';
 	import { page } from '$app/stores';
+	let openNav = false;
 </script>
 
-<div
-	class="navbar bg-neutral mb-20 w-auto shadow-xl text-primary-content sticky top-0 z-10"
->
-	<div class="flex-1">
-		<a href="/"><span class="font-bold"  data-sveltekit-prefetch>Plunser Fabios Portfolio</span></a>
+<nav class=" md:bg-gray-800 ">
+	<!-- Mobile Nav -->
+	<div class="flex items-center m-2  md:hidden">
+		<button on:click={()=>openNav=!openNav}>
+			<svg class="w-8 h-8 text-white transition duration-300 ease-in-out {openNav ? "rotate-90 " : "rotate-0"} " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
+			<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+			</svg>	
+		</button>	  
 	</div>
-	<div class="flex-none">
-		<div class="flex">
-			<a
-				data-sveltekit-prefetch
-				class:underline={$page.url.pathname === '/projects'}
-				class="btn btn-ghost btn-sm rounded-btn"
-				href="https://university.fabioplunser.com"
-			>
-				University
-			</a>
-			<a
-				data-sveltekit-prefetch
-				class:underline={$page.url.pathname === '/projects'}
-				class="btn btn-ghost btn-sm rounded-btn"
-				href="/projects"
-			>
-				Projects
-			</a>
-			<a
-				data-sveltekit-prefetch
-				class:underline={$page.url.pathname === '/posts'}
-				class="btn btn-ghost btn-sm rounded-btn"
-				href="/posts">Blog</a
-			>
-			<a
-				data-sveltekit-prefetch
-				class:underline={$page.url.pathname === '/about'}
-				class="btn btn-ghost btn-sm rounded-btn"
-				href="/about">About</a
-			>
-		</div>
+	<div class="md:hidden">
+	{#if openNav}
+		<Navexpension/>
+	{/if}
 	</div>
-</div>
+
+</nav>
