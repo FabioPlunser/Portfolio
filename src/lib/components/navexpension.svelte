@@ -3,7 +3,7 @@
     import {fly} from "svelte/transition"
 </script>
 
-<div in:fly="{{ y: -200, duration: 200}}" out:fly="{{ y: -200, duration: 200 }}" class="bg-gray-800 w-3/4 h-auto rounded-xl mx-auto text-white p-4 shadow-2xl">
+<div in:fly="{{ y: -200, duration: 200}}" out:fly="{{ y: -200, duration: 200 }}" class="fixed z-10 inset-x-0 bg-gray-800 w-3/4 h-auto rounded-xl mx-auto text-white p-4 shadow-2xl">
     <div class="bg-transparent hover:bg-purple-800 p-1 rounded-md">
         <a href="/">Projects</a>
     </div>

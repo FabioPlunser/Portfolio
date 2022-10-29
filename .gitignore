@@ -9,3 +9,5 @@ node_modules
 .vercel
 .output
 /certs
+svelte-kit build
+Backup your .env file

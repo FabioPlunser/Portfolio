@@ -15,6 +15,7 @@ const config = {
       out: "build",
       envPrefix: "MY_CUSTOM_",
     }),
+
   },
 };
 
