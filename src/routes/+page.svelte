@@ -24,7 +24,7 @@
 			<p>On this side you find my Projects, Idead ad things to help students in university</p>
 		</div>
 		<div class="w-full m-2">
-			<img class="shadow-xl rounded-xl" alt="hero" src="src\img\picture.webp"/>
+			<img class="shadow-xl rounded-xl" alt="hero" src="img/picture.webp"/>
 		</div>
 	</div>
 	<div class="z-0">
