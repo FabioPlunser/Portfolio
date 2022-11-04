@@ -7,7 +7,7 @@
 
 <div>
 	<main class="">
-		<MediaQuery query="(min-width: 480px)" let:matches>
+		<MediaQuery query="(max-width: 480px)" let:matches>
 			{#if matches}
 				<Nav/>
 			{/if}
