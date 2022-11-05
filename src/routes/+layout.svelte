@@ -1,18 +1,20 @@
 <script>
-  import Nav from "$lib/components/navMobile.svelte";
+  	import NavMobile from "$lib/components/navMobile.svelte";
+	import Nav from "$lib/components/nav.svelte";
 //   import Footer from "$lib/components/footer.svelte";
     import "../app.css";
 	import MediaQuery from "$lib/components/mediaQuery.svelte";
 </script>
 
 <div>
-	<main class="">
-		<MediaQuery query="(min-width: 480px)" let:matches>
+	<main class="dark">
+		<MediaQuery query="(max-width: 480px)" let:matches>
 			{#if matches}
+				<NavMobile/>
+			{:else}
 				<Nav/>
 			{/if}
 		</MediaQuery>
 		<slot />
-		<!-- <Footer /> -->
 	</main>
 </div>
