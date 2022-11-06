@@ -1,15 +1,33 @@
 <script lang="ts">
+	import '@fontsource/ibm-plex-mono';
+	import hljs from 'highlight.js';
 	import {marked} from 'marked';
+	marked.setOptions({
+		highlight: function (code, lang, _callback) {
+			if (typeof lang === 'undefined') {
+				return hljs.highlightAuto(code).value;
+			} else if (lang === 'nohighlight') {
+				return code;
+			} else {
+				return hljs.highlight(lang, code).value;
+			}
+		}
+	});
+	
   	import {onMount} from 'svelte';
 	import type { PageData } from './$types';
 	export let data: PageData
 	let project;
+	let markdown;
 	if(data.project){
 		$: project = data.project;
+		$: markdown = marked.parse(project.description);
+
 	}
 	let Component: any;
 	if(data.slug){
 		let path = `../../../lib/projectPages/${data.slug}.svelte`;
+		$: console.log(path);
 		onMount(async ()=>{
 			try{
 				Component = (await import(path)).default;
@@ -19,6 +37,7 @@
 		});
 	}
 	let component = false;
+	$:console.log(Component);
 	$:{
 		if(Component === undefined) component=false;
 	}
@@ -31,8 +50,7 @@
 
 {#if component}
 	<svelte:component this={Component} />
-{/if}
-{#if !component}
+{:else}
 	<section class="w-auto mx-10 md:mx-20 text-black dark:text-primary-content">
 		<div class="sm:-mx-5 md:-mx-10 lg:-mx-20 xl:-mx-38 mb-5">
 			<center>
@@ -71,7 +89,12 @@
 		</div>
 
 		<article class="prose prose-2xl">
-			{@html marked(project.description)}
+			{@html markdown}
 		</article>
 	</section>
 {/if}
+
+<style>
+	@import 'https://unpkg.com/@highlightjs/cdn-assets@10.6.0/styles/night-owl.min.css';
+</style>
+

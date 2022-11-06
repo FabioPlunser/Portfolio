@@ -23,8 +23,6 @@
 			{/if}
 		</MediaQuery>
 	<main class="dark mt-24">
-		<Notifications>
 			<slot />
-		</Notifications>
 	</main>
 </div>

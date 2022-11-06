@@ -19,11 +19,6 @@
         }
     } 
     let description = "";
-
-    import { getNotificationsContext } from 'svelte-notifications';
-
-    const { addNotification } = getNotificationsContext();
-    
 </script>
 
 
