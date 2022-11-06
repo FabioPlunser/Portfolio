@@ -1,18 +1,18 @@
 <script lang="ts">
-	import '@fontsource/ibm-plex-mono';
-	import hljs from 'highlight.js';
+	// import '@fontsource/ibm-plex-mono';
+	// import hljs from 'highlight.js';
 	import {marked} from 'marked';
-	marked.setOptions({
-		highlight: function (code, lang, _callback) {
-			if (typeof lang === 'undefined') {
-				return hljs.highlightAuto(code).value;
-			} else if (lang === 'nohighlight') {
-				return code;
-			} else {
-				return hljs.highlight(lang, code).value;
-			}
-		}
-	});
+	// marked.setOptions({
+	// 	highlight: function (code, lang, _callback) {
+	// 		if (typeof lang === 'undefined') {
+	// 			return hljs.highlightAuto(code).value;
+	// 		} else if (lang === 'nohighlight') {
+	// 			return code;
+	// 		} else {
+	// 			return hljs.highlight(lang, code).value;
+	// 		}
+	// 	}
+	// });
 	
   	import {onMount} from 'svelte';
 	import type { PageData } from './$types';
