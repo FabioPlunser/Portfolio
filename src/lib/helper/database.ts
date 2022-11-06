@@ -6,7 +6,6 @@ export function connectDB(){
         if (err) {
             console.error(err.message);
         }
-        console.log("Connected to the database.");
     });
 }
 
@@ -16,7 +15,6 @@ export async function createTable() {
             console.log(err)
         }
         else{
-            console.log("Successful");
         }
     });
 }
@@ -28,7 +26,6 @@ export async function destroyTable(){
             console.log(err)
         }
         else{
-            console.log("Successful");
         }
     });
 }
@@ -38,7 +35,7 @@ export function insertPost(title: string, description: string, path: string, ico
             console.log(err)
         }
         else{
-            console.log("Successful");
+            
         }
     });
 }
@@ -48,7 +45,6 @@ export function updatePost(id: number, title: string, description: string, path:
             console.log(err)
         }
         else{
-            console.log("Successful");
         }
     });
 }
@@ -58,7 +54,6 @@ export async function deletePost(id: number) {
             console.log(err)
             }
         else{
-            console.log("Successfuly deleted");
             }
     });         
 }
@@ -69,7 +64,6 @@ export function updateID(){
             console.log(err)
         }
         else{
-            console.log("Successful");
         }
     });
 }

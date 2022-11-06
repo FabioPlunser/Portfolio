@@ -3,6 +3,7 @@
 	import Nav from "$lib/components/nav.svelte";
     import "../app.css";
 	import MediaQuery from "$lib/components/mediaQuery.svelte";
+	import Notifications from 'svelte-notifications';
 	// import { SvelteToast } from '@zerodevx/svelte-toast'
 	
 </script>
@@ -13,7 +14,6 @@
 </svelte:head>
 
 <div>
-	<main class="dark">
 		<!-- <SvelteToast {options} /> -->
 		<MediaQuery query="(max-width: 480px)" let:matches>
 			{#if matches}
@@ -22,6 +22,9 @@
 				<Nav/>
 			{/if}
 		</MediaQuery>
-		<slot />
+	<main class="dark mt-24">
+		<Notifications>
+			<slot />
+		</Notifications>
 	</main>
 </div>
