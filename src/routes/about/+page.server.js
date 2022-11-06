@@ -1,6 +1,6 @@
 
-import { client } from '$lib/graphql-client';
-import { authorsQuery } from '$lib/graphql-queries';
+import { client } from '$lib/helper/graphql-client';
+import { authorsQuery } from '$lib/helper/graphql-queries';
 
 export const load = async () => {
 	const { authors } = await client.request(authorsQuery);
