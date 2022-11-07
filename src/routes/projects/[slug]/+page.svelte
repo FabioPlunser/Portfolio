@@ -26,18 +26,16 @@
 	}
 	let Component: any;
 	if(data.slug){
-		let path = `../../../lib/projectPages/${data.slug}.svelte`;
-		$: console.log(path);
+		let path = `../../../lib/components/projectPages/${data.slug}.svelte`;
 		onMount(async ()=>{
 			try{
-				Component = (await import(path)).default;
+				Component = (await import(`../../../lib/components/projectPages/${data.slug}.svelte`)).default;
 			}catch(e){
 				console.log(e);
 			}
 		});
 	}
 	let component = false;
-	$:console.log(Component);
 	$:{
 		if(Component === undefined) component=false;
 	}
