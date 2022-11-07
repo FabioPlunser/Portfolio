@@ -1,5 +1,7 @@
-import { connectDB, createTable, updateID} from "$lib/helper/database";
+import { connectDB, createTable, updateID} from "./lib/helper/database";
 
-await connectDB();
-await createTable();
-await updateID();
+// connectDB();
+// export function handle({ request, resolve }) {
+//   connectDB();
+//   return resolve(request);
+// }

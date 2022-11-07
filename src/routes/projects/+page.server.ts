@@ -1,8 +1,9 @@
 import { client } from '$lib/helper/graphql-client';
 import { projectsQuery } from '$lib/helper/graphql-queries';
-import { getPosts } from "$lib/helper/database"
+import { getPosts, connectDB } from "$lib/helper/database"
 
 export async function load() {
+	connectDB();
 	const [projectsReq] = await Promise.all([client.request(projectsQuery)]);
 	const res = await getPosts();
 

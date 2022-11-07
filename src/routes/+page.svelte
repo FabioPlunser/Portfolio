@@ -1,8 +1,10 @@
 
 <script>
+	
 	import HeroMobile from '$lib/components/heroMobile.svelte';
 	import MediaQuery from '$lib/components/mediaQuery.svelte';
  	import Carousel from "$lib/components/Carousel.svelte";
+  	import { onMount } from 'svelte';
 
 	let Projects = [
 		{title: "Project 1", description: "This is a description of project 1", image: "https://picsum.photos/400/400", path: "/project1"},
@@ -11,6 +13,8 @@
 		{title: "Project 4", description: "This is a description of project 3", image: "https://picsum.photos/400/200", path: "/project4"},
 
 	]
+
+
 </script>
 <svelte:head>
 	<title>My Portfolio project</title>
