@@ -21,7 +21,8 @@ jobs:
   # This workflow contains a single job called "build"
   deploy:
     # The type of runner that the job will run on
-    runs-on: self-hosted
+    # runs-on: self-hosted
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node_version: [12.x]
