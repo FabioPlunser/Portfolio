@@ -11,11 +11,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-env: 
-  VITE_GRAPHQL_API=${{ secrets.GARPHQL }}
-  VITE_USERNAME=${{ secrets.USERNAME }}
-  VITE_PASSWORD=${{ secrets.PASSWORD }}
-  VITE_MONGO_URL=${{ secrets.MONGO }}
+env: VITE_GRAPHQL_API= ${{ secrets.GARPHQL }}
+  VITE_USERNAME= ${{ secrets.USERNAME }}
+  VITE_PASSWORD= ${{ secrets.PASSWORD }}
+  VITE_MONGO_URL= ${{ secrets.MONGO }}
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
