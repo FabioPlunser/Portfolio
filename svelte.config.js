@@ -14,8 +14,12 @@ const config = {
       // default options are shown
       out: "build",
       envPrefix: "MY_CUSTOM_",
+      alias: {
+        // Alias for the root directory of the project
+        db: "./src/db",
+        lib: "./src/lib",
+      },
     }),
-
   },
 };
 

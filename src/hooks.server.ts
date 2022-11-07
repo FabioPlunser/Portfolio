@@ -1,7 +1,8 @@
-import { connectDB, createTable, updateID} from "./lib/helper/database";
+import { start_mongo } from "../src/lib/helper/db";
 
-// connectDB();
-// export function handle({ request, resolve }) {
-//   connectDB();
-//   return resolve(request);
-// }
+
+start_mongo().then(() => {
+    console.log('Mongo started');
+}).catch((err) => {
+    console.log(err);
+});

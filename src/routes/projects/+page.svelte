@@ -4,6 +4,7 @@
 	export let data: PageData;
 
 	$: data = data.data;
+	$: console.log(data);
 </script>
 
 <svelte:head>
@@ -30,7 +31,7 @@
 			{/each}
 		{/if}
 
-		{#if data.projects}
+		{#if data.posts}
 			{#each data.posts as { title, path, description, icon }}
 				<ProjectCard name={title} {description} url={icon} slug={path} />
 			{/each}

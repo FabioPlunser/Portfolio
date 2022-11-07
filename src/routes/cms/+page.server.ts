@@ -1,12 +1,14 @@
-import { getPosts, destroyTable, insertPost, updatePost, deletePost, updateID } from "$lib/helper/database";
+import { getPages, insertPage, updatePage, deletePage } from "$lib/helper/db";
 import type {PageServerLoad, Actions} from './$types';
 import {redirect} from '@sveltejs/kit';
 
 
 
 export const load: PageServerLoad = async function(){
-    const data =  await getPosts();
-    await updateID();
+    const data =  await getPages();
+    for (let res of data) {
+       res._id = res._id.toString();
+    }
     return {
         data
     }
@@ -21,12 +23,7 @@ export const actions: Actions = {
         const icon = data.get('icon');
         const date = data.get('date');
 
-        insertPost(title, description, path, icon, date)
-    },
-    destroyDB: async () => {
-        destroyTable();
-        throw redirect(303, '/cms');
-
+        insertPage(title, description, path, icon, date)
     },
     update: async ({request}) => {
         let data = await request.formData();
@@ -39,10 +36,10 @@ export const actions: Actions = {
         const update = data.get("button");
 
         if(update === "update"){
-            updatePost(id, title, description, path, icon, date);
+            updatePage(id, title, description, path, icon, date);
         }
         else if(update === "delete"){
-            deletePost(id);
+            deletePage(id);
         }
 
     }

@@ -1,5 +1,6 @@
 import { client } from '$lib/helper/graphql-client';
 import { projectQuery } from '$lib/helper/graphql-queries';
+
 export const load = async ({ params }) => {
 	const { slug } = params;
 	const variables = { slug };

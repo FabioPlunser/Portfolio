@@ -5,6 +5,7 @@
     import type {PageData} from "./$types"
     export let data: PageData;
     $: data = data.data;
+    $: console.log(data);
 
     const Username = import.meta.env.VITE_USERNAME 
     const Password = import.meta.env.VITE_PASSWORD 
@@ -55,21 +56,22 @@
 
     <br class="mt-24"/>
     <div class="divider"></div>
-    {#each data as page}
+    {#each data as page, i}
         <center>
             <div class="mx-auto justify-center w-full">
                 <div class="">
-                    <form id={page.id} method="POST" action="?/update"  use:enhance={() => {invalidateAll()}}>
+                    <h1 class="text-sm m-2 align-center" name="id">ID: {page._id}</h1>
+
+                    <form id={page._id} method="POST" action="?/update"  use:enhance={() => {invalidateAll()}}>
                         <div class="flex mx-auto justify-center">
-                            <h1 class="text-xl m-2 align-center" name="id">ID: {page.id}</h1>
-                            <input type="hidden" name="id" value={page.id}/>
+                            <input type="hidden" name="id" value={page._id}/>
                             <input type="text" placeholder="title" class="input w-full max-w-fit shadow-xl m-1" name="title" value={page.title}/>
                             <input type="hidden" placeholder="description" class="input w-full max-w-fit shadow-xl m-1" name="description" value={page.description}/>
                             <input type="text" placeholder="path" class="input w-full max-w-fit shadow-xl m-1" name="path" value={page.path}/>
                             <input type="text" placeholder="icon" class="input w-full max-w-fit shadow-xl m-1" name="icon" value={page.icon}/>
                             <input type="date" placeholder="date" class="input w-full max-w-fit shadow-xl m-1" name="date" value={page.date}>
-                            <button class="btn btn-primary shadow-xl m-1" value="update" name="button" form={page.id}>update</button>
-                            <button class="btn btn-primary shadow-xl m-1" value="delete" name="button" form={page.id}>Delete</button>
+                            <button class="btn btn-primary shadow-xl m-1" value="update" name="button" form={page._id}>update</button>
+                            <button class="btn btn-primary shadow-xl m-1" value="delete" name="button" form={page._id}>Delete</button>
                         </div>
                     </form>
                 </div>
