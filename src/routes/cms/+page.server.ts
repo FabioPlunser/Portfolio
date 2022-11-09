@@ -15,6 +15,7 @@ export const load: PageServerLoad = async function(){
 }
 
 export const actions: Actions = {
+    // TODO add BlogPost, AddProjects, AddPage
     addDB: async ({request}) => {
         let data = await request.formData();
         const title = data.get('title');

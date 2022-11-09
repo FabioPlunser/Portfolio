@@ -86,13 +86,12 @@
 			{/if}
 		</div>
 
-		<article class="prose prose-2xl">
+		<article class="prose prose-slate dark:prose-invert pb-64">
 			{@html markdown}
 		</article>
 	</section>
 {/if}
 
 <style>
-	@import 'https://unpkg.com/@highlightjs/cdn-assets@10.6.0/styles/night-owl.min.css';
+	@import 'https://unpkg.com/@highlightjs/cdn-assets@10.6.0/styles/atom-one-dark.min.css';
 </style>
-

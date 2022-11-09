@@ -1,10 +1,10 @@
 <script>
 	import { browser } from '$app/environment';
-    import '@fontsource/ibm-plex-mono';
+    // import '@fontsource/ibm-plex-mono';
 	import hljs from 'highlight.js';
 	import { marked } from 'marked';
 	marked.setOptions({
-		highlight: function (code, lang, _callback) {
+		highlight(code, {lang}) {
 			if (typeof lang === 'undefined') {
 				return hljs.highlightAuto(code).value;
 			} else if (lang === 'nohighlight') {
@@ -64,6 +64,5 @@
 </main>
 
 <style>
-	@import 'https://unpkg.com/@highlightjs/cdn-assets@10.6.0/styles/night-owl.min.css';
+	@import 'https://unpkg.com/@highlightjs/cdn-assets@10.6.0/styles/atom-one-dark.min.css';
 </style>
-
