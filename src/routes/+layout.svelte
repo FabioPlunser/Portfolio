@@ -3,7 +3,7 @@
 	import Nav from "$lib/components/nav.svelte";
     import "../app.css";
 	import MediaQuery from "$lib/components/mediaQuery.svelte";
-	
+	import { Toast, toastStore } from '@brainandbones/skeleton';
 </script>
 
 <svelte:head>
@@ -20,6 +20,7 @@
 			{/if}
 		</MediaQuery>
 	<main class="dark mt-24">
-			<slot />
+		<Toast background="bg-accent-500" position="tr" variant="filled" duration={250} />
+		<slot />
 	</main>
 </div>

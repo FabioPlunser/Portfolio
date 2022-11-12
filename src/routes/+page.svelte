@@ -6,7 +6,6 @@
 	import MediaQuery from '$lib/components/mediaQuery.svelte';
 	import Hero from '$lib/components/hero.svelte';
   	import { onMount } from 'svelte';
-
 	export let data: any;
 	console.log(data);
 	let Projects = [
@@ -16,12 +15,14 @@
 		{title: "Project 4", description: "This is a description of project 3", image: "https://picsum.photos/400/200", path: "/project4"},
 
 	]
-
+	
 
 </script>
 <svelte:head>
 	<title>My Portfolio project</title>
 </svelte:head>
+
+
 
 <!-- Hero Smartphone -->
 <MediaQuery query="(max-width: 480px)" let:matches>

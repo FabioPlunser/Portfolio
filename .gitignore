@@ -3,11 +3,7 @@ node_modules
 /build
 /.svelte-kit
 /package
-.env
-.env.*
-!.env.example
 .vercel
 .output
 /certs
 svelte-kit build
-Backup your .env file
