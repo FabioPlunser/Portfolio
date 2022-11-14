@@ -7,3 +7,4 @@ node_modules
 .output
 /certs
 svelte-kit build
+.env

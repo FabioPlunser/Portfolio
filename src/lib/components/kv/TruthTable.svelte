@@ -105,7 +105,6 @@
                 {/each}
                 
             </tr>
-
         {/each}
       </tbody>
     </table>
