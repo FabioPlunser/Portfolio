@@ -21,7 +21,7 @@ export async function insertBlog(title: string, content: string, icon: string, d
     await posts.insertOne({title: title, content: content, icon: icon, date: date})
 }
 
-export async function getBlog(){
+export async function getallBlog(){
     const db = client.db("Portfolio")
     const posts = db.collection("Blog")
     return await posts.find().toArray()
