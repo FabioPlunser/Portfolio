@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let projects: any;
+    // export let projects: any;
 </script>
 
 <!-- Hero -->

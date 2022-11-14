@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js,svelte,ts}"],
+  content: [
+    "./src/**/*.{html,js,svelte,ts}",
+    "./node_modules/@brainandbones/skeleton/**/*.{html,js,svelte,ts}",
+  ],
   darkMode: "class",
   theme: {
     extend: {
@@ -43,5 +46,9 @@ module.exports = {
       },
     },
   }),
-  plugins: [require("@tailwindcss/typography"), require("daisyui"), require('tailwindcss-textshadow')],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("daisyui"),
+    require("tailwindcss-textshadow"),
+  ],
 };

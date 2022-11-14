@@ -34,12 +34,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run:  
-          echo VITE_GRAPHQL_API=https://api-eu-central-1.hygraph.com/v2/cl52fv46h25eg01ujhpnjc820/master >> .env
-          echo VITE_USERNAME = "admin" >> .env
-          echo VITE_PASSWORD = "admin" >> .env
-          echo VITE_MONGO_URL="mongodb://192.168.0.250:27017" >> .env
+      - run: echo VITE_GRAPHQL_API=${{ secrets.GARPHQL }} >> .env
+          echo VITE_USERNAME = ${{ secrets.USERNAME }} >> .env
+          echo VITE_PASSWORD = ${{ secrets.PASSWORD }} >> .env
+          echo VITE_MONGO_URL= ${{ secrets.MONGO }} >> .env
       - run: npm install
       - run: npm run build --if-present
       - run: pm2 restart Portfolio
-     

@@ -1,4 +1,4 @@
-import { insertBlog, getBlog, updateBlog, deleteBlog, insertPage, getPages, updatePage, deletePage} from "$lib/helper/db";
+import { insertBlog, getallBlog, updateBlog, deleteBlog, insertPage, getPages, updatePage, deletePage} from "$lib/helper/db";
 import type {PageServerLoad, Actions} from './$types';
 import {redirect} from '@sveltejs/kit';
 import { Toast, toastStore } from '@brainandbones/skeleton';
@@ -11,7 +11,7 @@ import type { ToastMessage } from '@brainandbones/skeleton';
 
 export const load: PageServerLoad = async function(){
     const pages =  await getPages();
-    const blog = await getBlog();
+    const blog = await getallBlog();
 
     for (let res of pages) {
        res._id = res._id.toString();
