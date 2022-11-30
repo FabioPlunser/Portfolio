@@ -4,7 +4,7 @@ import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 /** @type {import('vite').UserConfig} */
 const config = {
   optimizeDeps: {
-    include: ["lodash.get", "lodash.isequal", "lodash.clonedeep"],
+    include: ["lodash.get", "lodash.isequal", "lodash.clonedeep", "highlight.js", "highlight.js/lib/core"],
   },
   plugins: [
     sveltekit(),
