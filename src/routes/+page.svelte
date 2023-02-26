@@ -4,7 +4,7 @@
 
 
 <section id="hero">
-    <div class="mt-20 flex justify-center">
+    <!-- <div class="mt-20 flex justify-center">
         <div class="flex ">
             <div class="items-center my-auto relative">
                 <h1 class="text-5xl font-bold">Hello, </h1>
@@ -20,6 +20,6 @@
             </div>
             <img src={Test} alt="Hero" class="max-w-4xl " />
         </div>
-    </div>
-    
+    </div> -->
+    <h1 class="flex justify-center text-6xl font-bold items-center">Under construction</h1>
 </section>

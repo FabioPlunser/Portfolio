@@ -5,7 +5,8 @@
 </script>
 
 
+<main class="mx-10 mt-4">
+    <Nav/>
 
-<Nav/>
-
-<slot/>
+    <slot/>
+</main>
