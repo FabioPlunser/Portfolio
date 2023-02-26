@@ -1,10 +1,4 @@
-.DS_Store
+.svelte-kit
 node_modules
-/build
-/.svelte-kit
-/package
-.vercel
-.output
-/certs
-svelte-kit build
-.env
+dist
+fileSharing
