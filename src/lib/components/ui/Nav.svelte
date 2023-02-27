@@ -1,7 +1,7 @@
 <script lang="ts">
     import { theme } from "$stores/themeStore";
     import { page } from "$app/stores";
-    import {slide} from 'svelte/transition';
+    import {slide, fly} from 'svelte/transition';
     import MediaQuery from '$lib/helper/MediaQuery.svelte';
 
     let open = false;
@@ -94,7 +94,7 @@
         </div>
       </nav>
       {#if open}
-        <div class="fixed top-0 mr-42 bg-base-300 h-full w-fit p-20 rounded" on:blur={()=>open = false}>
+        <div class="fixed z-[999] left-0 top-0 mr-42 bg-base-300 h-full p-20 rounded" transition:fly={{x: -200, duration: 300}} on:blur={()=>open = false}>
           <div class="absolute top-0 right-0">
             <button class="hover:text-gray-400" on:click={()=>open = false}><i class="bi bi-x text-5xl left-0"></i></button>
           </div>
