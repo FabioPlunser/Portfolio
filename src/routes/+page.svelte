@@ -3,7 +3,5 @@
 
 
 <section>
-	<h1>
-    Fabio Plunser Portfolio
-	</h1>
+    <h1>Fabio Plunser Portfolio</h1>
 </section>
