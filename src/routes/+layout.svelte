@@ -1,7 +1,9 @@
 <script>
-	imimport "../app.postcss";
+    import "../app.postcss";
+    import Nav from "$lib/components/Nav.svelte";
 </script>
 
-<main>
+<main class="text-white">
+    <Nav/>
     <slot/>
 </main>
