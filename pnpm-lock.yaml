@@ -58,6 +58,9 @@ devDependencies:
   eslint-plugin-svelte:
     specifier: ^2.32.4
     version: 2.32.4(eslint@8.47.0)(svelte@4.2.0)
+  marked:
+    specifier: ^7.0.4
+    version: 7.0.4
   mdsvex:
     specifier: ^0.11.0
     version: 0.11.0(svelte@4.2.0)
@@ -1765,6 +1768,12 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       semver: 6.3.1
+    dev: true
+
+  /marked@7.0.4:
+    resolution: {integrity: sha512-t8eP0dXRJMtMvBojtkcsA7n48BkauktUKzfkPSCq85ZMTJ0v76Rke4DYz01omYpPTUh4p/f7HePgRo3ebG8+QQ==}
+    engines: {node: '>= 16'}
+    hasBin: true
     dev: true
 
   /mdn-data@2.0.30:
