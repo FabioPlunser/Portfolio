@@ -67,12 +67,6 @@
 			return options.fn(node, options);
 		}
 	}
-	function maybeOut(node: any, options: any, inView: any) {
-		if (!inView) {
-			return options.fn(node, options);
-		}
-	}
-	// in:maybe={{ inView: item.inView, fn: fly, delay: 200, x: 50 }}
 	$: console.log('timelineItems', timelineItems);
 </script>
 
@@ -89,7 +83,7 @@
 			<div class="flex justify-center mx-auto relative w-auto m-auto p-4">
 				{#key item.inView}
 					<div class="absolute top-0 h-full w-2 bg-white">
-						<div class="relative m-2 {item.inView ? "block" : "hidden"}">
+						<div class="relative m-2 {item.inView ? 'block' : 'hidden'}">
 							<span
 								in:maybe={{
 									inView: item.inView,
