@@ -1,7 +1,15 @@
 <script lang="ts">
 	import { marked } from 'marked';
 	import { fly, scale } from 'svelte/transition';
-	import { quintIn, quintInOut, cubicInOut, bounceIn } from 'svelte/easing';
+	import {
+		quintIn,
+		quintInOut,
+		cubicInOut,
+		bounceIn,
+		elasticOut,
+		elasticIn,
+		bounceOut
+	} from 'svelte/easing';
 	import { inview } from 'svelte-inview';
 
 	let timelineItems = [
@@ -67,6 +75,7 @@
 			return options.fn(node, options);
 		}
 	}
+
 	function maybeOut(node: any, options: any, inView: any) {
 		if (!inView) {
 			return options.fn(node, options);
@@ -78,42 +87,71 @@
 
 <section class="mt-12 relative">
 	{#each timelineItems as item, i (item.id)}
-		<div
-			use:inview={options}
-			on:inview_enter={(detail) => handleChange(detail, item)}
-			on:inview_leave={(detail) => {
-				console.log('inview_leave');
-				handleChange(detail, item);
-			}}
-		>
+		<div use:inview={options} on:inview_enter={(detail) => handleChange(detail, item)}>
 			<div class="flex justify-center mx-auto relative w-auto m-auto p-4">
 				{#key item.inView}
 					<div class="absolute top-0 h-full w-2 bg-white">
-						<div class="relative m-2 {item.inView ? "block" : "hidden"}">
-							<span
-								in:maybe={{
-									inView: item.inView,
-									fn: scale,
-									duration: 500,
-									easing: quintInOut
-								}}
-								class="absolute mt-2 -left-[32px] w-[60px] h-[60px] rounded-full bg-white"
-							>
-								<div class="flex justify-center items-center w-full h-full">
-									<img
-										in:maybe={{
-											inView: item.inView,
-											fn: scale,
-											duration: 500,
-											delay: 400
-										}}
-										src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/934px-Logo_of_Twitter.svg.png"
-										alt=""
-										class="object-contain w-[70%]"
-									/>
+						{#if i == 0}
+							<div
+								class="w-[30px] h-[30px] -left-[10px] -mt-[20px] rounded-full absolute bg-white"
+							/>
+						{/if}
+						<div class="relative m-2 {item.inView ? 'block' : 'hidden'} w-full">
+							<div class="flex w-full">
+								<span
+									in:maybe={{
+										inView: item.inView,
+										fn: scale,
+										duration: 500,
+										easing: quintInOut
+									}}
+									class="absolute mt-2 -left-[32px] w-[60px] h-[60px] rounded-full bg-white"
+								>
+									<div class="flex items-center w-full h-full">
+										<img
+											in:maybe={{
+												inView: item.inView,
+												fn: scale,
+												duration: 500
+											}}
+											src="https://keyplus.co.uk/wp-content/uploads/2015/04/mk-illumintations.png"
+											alt=""
+											class="w-full object-contain"
+										/>
+									</div>
+								</span>
+								<div
+									in:maybe={{
+										inView: item.inView && i % 2 == 0,
+										fn: fly,
+										duration: 200,
+										x: -50,
+										delay: 500,
+										easing: cubicInOut
+									}}
+									class="ml-9 w-48 mt-7 {item.inView && i % 2 == 0 ? 'block' : 'hidden'}"
+								>
+									<h1 class="w-48">{item.date}</h1>
 								</div>
-							</span>
+								<div
+									in:maybe={{
+										inView: item.inView && i % 2 == 0,
+										fn: fly,
+										duration: 200,
+										x: 50,
+										delay: 500
+									}}
+									class="-ml-32 w-48 mt-7 {item.inView && i % 2 == 1 ? 'block' : 'hidden'}"
+								>
+									<h1 class="w-48">{item.date}</h1>
+								</div>
+							</div>
 						</div>
+						{#if i == timelineItems.length - 1}
+							<div
+								class="w-[30px] h-[30px] -left-[10px] mt-[45px] rounded-full absolute bg-white"
+							/>
+						{/if}
 					</div>
 				{/key}
 				<br class="mt-8 pt-8" />
@@ -125,9 +163,9 @@
 							in:maybe={{
 								inView: item.inView,
 								fn: fly,
-								duration: 800,
+								duration: 1000,
 								x: -100,
-								easing: cubicInOut
+								easing: elasticOut
 							}}
 							class="relative rounded-xl bg-slate-800 p-4 w-full"
 						>
@@ -149,9 +187,9 @@
 							in:maybe={{
 								inView: item.inView,
 								fn: fly,
-								duration: 800,
-								x: 500,
-								easing: cubicInOut
+								duration: 1000,
+								x: 25,
+								easing: elasticOut
 							}}
 							class="relative rounded-xl bg-slate-800 p-4 w-full"
 						>
@@ -169,51 +207,4 @@
 			</div>
 		</div>
 	{/each}
-	<!-- Mobile timeline -->®®
-	<!-- <div class="mt-48 flex flex-col">
-		{#each timelineItems as item, i (item.id)}
-			<div>
-				<div
-					use:inview={options}
-					on:inview_enter={(detail) => handleChange(detail, item)}
-					on:inview_leave={(detail) => {
-						console.log('inview_leave');
-						handleChange(detail, item);
-					}}
-				>
-					{#key item.inView}
-						<div class="relative w-full m-auto p-4">
-							<div
-								in:maybe={{ inView: item.inView, fn: fly, delay: 200, y: -30, duration: 200 }}
-								class="{item.inView ? 'block' : 'hidden'} absolute top-0 h-full w-1 bg-white"
-							>
-								<div class="relative m-2">
-									<span class="absolute top-0 -left-[25px] w-[40px] h-[40px] rounded-full bg-white">
-										<div class="flex justify-center items-center w-full h-full">
-											<img src={item.logo} alt="" class="object-contain w-[70%]" />
-										</div>
-									</span>
-								</div>
-							</div>
-							<div class={item.inView ? 'block' : 'hidden'}>
-								<div
-									in:maybe={{ inView: item.inView, fn: fly, delay: 200, x: 50 }}
-									class="relative ml-[30px] rounded-xl bg-slate-800 p-4"
-								>
-									<h1 class="text-2xl font-bold flex justify-start">{item.title}</h1>
-									<div class="flex gap-4 text-gray-500">
-										<span>{item.company}</span>
-										<span>{item.date}</span>
-									</div>
-									<p class="w-full break-all prose prose-custom">
-										{@html marked(item.description)}
-									</p>
-								</div>
-							</div>
-						</div>
-					{/key}
-				</div>
-			</div>
-		{/each}
-	</div> -->
 </section>
